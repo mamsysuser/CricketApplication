@@ -50,7 +50,7 @@ class TeamTest extends TestCase
             'logoUri'    => 'noimage.jpg',
             'club_state' => 'Test',
         ]);
-        
+
 
         $response = $this->patch('/teams/', [
             'name'       => 'New Team',
@@ -60,4 +60,13 @@ class TeamTest extends TestCase
 
         $this->assertTrue(true);
     }
+
+    // Test for view teams
+
+    /*public function testViewTeams() {
+        $team = factory(Team::class)->create();
+        $response = $this->get('/teams');
+        $response->assertSee($team->name);
+        $response->assertStatus(200);
+    }*/
 }

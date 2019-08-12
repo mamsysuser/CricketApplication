@@ -46,7 +46,7 @@ class PlayerTest extends TestCase
     //Update Player Data using test
     public function testUpdatePlayer() {
 
-        $this->put('/player', [
+        $this->put('/players', [
             'firstName'       => 'Test Name',
             'lastName'        => 'Test Last Name',
             'imageUri'        => 'noimage.jpg',
@@ -56,7 +56,7 @@ class PlayerTest extends TestCase
             'player_history'  => 'a:6:{s:7:"matches";s:2:"22";s:4:"runs";s:4:"2222";s:13:"highest_score";s:2:"22";s:8:"hundreds";s:2:"22";s:7:"fifties";s:2:"22";s:7:"wickets";s:2:"22";}',
         ]);
 
-        $response = $this->patch('/teams/', [
+        $response = $this->patch('/players/', [
             'firstName'       => 'New Name',
             'lastName'        => 'New Last Name',
             'imageUri'        => 'newnoimage.jpg',
