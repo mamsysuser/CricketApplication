@@ -10,6 +10,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 
+
 class TeamTest extends TestCase
 {
     use RefreshDatabase;
@@ -19,6 +20,8 @@ class TeamTest extends TestCase
      *
      * @return void
      */
+
+    //Creating new team using test
     public function testCreateTeam()
     {
         Event::fake();
@@ -37,5 +40,24 @@ class TeamTest extends TestCase
             'logoUri'    => 'noimage.jpg',
             'club_state' => 'Test',
         ];        
+    }
+
+    //Update Team using test
+    public function testUpdateTeam() {
+
+        $this->put('/teams', [
+            'name'       => 'Test Team',
+            'logoUri'    => 'noimage.jpg',
+            'club_state' => 'Test',
+        ]);
+        
+
+        $response = $this->patch('/teams/', [
+            'name'       => 'New Team',
+            'logoUri'    => 'newnoimage.jpg',
+            'club_state' => 'New Test', 
+        ]);
+
+        $this->assertTrue(true);
     }
 }

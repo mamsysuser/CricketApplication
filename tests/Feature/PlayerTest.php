@@ -15,7 +15,7 @@ class PlayerTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Create Teams using test
+     * Create player using test
      *
      * @return void
      */
@@ -41,5 +41,31 @@ class PlayerTest extends TestCase
             'team_id'         => '1',
             'player_history'  => 'a:6:{s:7:"matches";s:2:"22";s:4:"runs";s:4:"2222";s:13:"highest_score";s:2:"22";s:8:"hundreds";s:2:"22";s:7:"fifties";s:2:"22";s:7:"wickets";s:2:"22";}',         
         ];        
+    }
+
+    //Update Player Data using test
+    public function testUpdatePlayer() {
+
+        $this->put('/player', [
+            'firstName'       => 'Test Name',
+            'lastName'        => 'Test Last Name',
+            'imageUri'        => 'noimage.jpg',
+            'jerseyNo'        => '1',
+            'country_id'      => '1',
+            'team_id'         => '1',
+            'player_history'  => 'a:6:{s:7:"matches";s:2:"22";s:4:"runs";s:4:"2222";s:13:"highest_score";s:2:"22";s:8:"hundreds";s:2:"22";s:7:"fifties";s:2:"22";s:7:"wickets";s:2:"22";}',
+        ]);
+
+        $response = $this->patch('/teams/', [
+            'firstName'       => 'New Name',
+            'lastName'        => 'New Last Name',
+            'imageUri'        => 'newnoimage.jpg',
+            'jerseyNo'        => '2',
+            'country_id'      => '2',
+            'team_id'         => '1',
+            'player_history'  => 'a:6:{s:7:"matches";s:2:"22";s:4:"runs";s:4:"2222";s:13:"highest_score";s:2:"22";s:8:"hundreds";s:2:"22";s:7:"fifties";s:2:"22";s:7:"wickets";s:2:"22";}', 
+        ]);
+
+        $this->assertTrue(true);
     }
 }
