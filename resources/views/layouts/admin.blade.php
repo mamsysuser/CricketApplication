@@ -9,7 +9,7 @@
 
     <title>{{ trans('global.site_title') }}</title>
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/font-awesome.css') }}" />
+    <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet" />
     <link href="{{ asset('css/all.css') }}" />
     <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
