@@ -10,9 +10,25 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
 class PlayerTest extends TestCase
 {
-    use RefreshDatabase;
+    //Comment it if you dont want to refresh data after each test and want to use DatabaseTransactions
+    //use RefreshDatabase;
+    use DatabaseTransactions;
+    
+    /**
+     * Test Player View if exist.
+     *
+     * @return void
+     */
+    public function testPlayerView()
+    {
+      $player = new Player(['firstName'=>'Sachin']);
+      $this->assertEquals('Sachin', $player->firstName);
+    }
 
     /**
      * Create player using test

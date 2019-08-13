@@ -10,10 +10,25 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class MatchTest extends TestCase
 {
-    use RefreshDatabase;
+    //Comment it if you dont want to refresh data after each test and want to use DatabaseTransactions
+    //use RefreshDatabase;
+    use DatabaseTransactions;
+ 
+    // Test to retrive all matches
+    public function testMatchRetrieval()
+    {
+        // Given a match has been created in the database
+        $insertedmatch = factory(Match::class)->create($this->data());
+        
+        // When I fetch the matches
+        $retrievedmatch = Match::get();
+        $this->assertTrue(true);
+    }
 
     /**
      * Create Teams using test
@@ -38,7 +53,7 @@ class MatchTest extends TestCase
             'match_title'     => 'Test Match',
             'firstteam_id'    => factory(Team::class)->create()->id,
             'secondteam_id'   => factory(Team::class)->create()->id,
-            'winningteam_id'  => factory(Team::class)->create()->id,         
+            'winningteam_id'  => factory(Team::class)->create()->id,      
         ];        
     }
 }
