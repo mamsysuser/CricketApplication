@@ -50,3 +50,13 @@
     </div>
 </div>
 @endsection
+<style type="text/css">
+    body{
+          background-image: url("images/photo-1540747913346-19e32dc3e97e.jpeg"); /* The image used */
+          background-color: #cccccc; /* Used if the image is unavailable */
+          height: auto; /* You must set a specified height */
+          background-position: center; /* Center the image */
+          background-repeat: no-repeat; /* Do not repeat the image */
+          background-size: cover; /* Resize the background image to cover the entire container */
+    }
+</style>
